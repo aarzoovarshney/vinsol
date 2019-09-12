@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EED6AFEDEBA7E2E1DE41B82 /* Pods_MeetingCalendarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E08386B2581910D29B5CDDF /* Pods_MeetingCalendarTests.framework */; };
 		348E160F232A3CA600D54420 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348E160E232A3CA600D54420 /* AppDelegate.swift */; };
 		348E1611232A3CA600D54420 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348E1610232A3CA600D54420 /* ViewController.swift */; };
 		348E1614232A3CA600D54420 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 348E1612232A3CA600D54420 /* Main.storyboard */; };
@@ -14,6 +15,15 @@
 		348E1619232A3CA800D54420 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 348E1617232A3CA800D54420 /* LaunchScreen.storyboard */; };
 		348E1624232A3CA800D54420 /* MeetingCalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348E1623232A3CA800D54420 /* MeetingCalendarTests.swift */; };
 		348E162F232A3CA800D54420 /* MeetingCalendarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348E162E232A3CA800D54420 /* MeetingCalendarUITests.swift */; };
+		348E1640232A449B00D54420 /* MCServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348E163F232A449B00D54420 /* MCServiceManager.swift */; };
+		348E1643232A45AB00D54420 /* MeetingPotraitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348E1641232A45AB00D54420 /* MeetingPotraitTableViewCell.swift */; };
+		348E1644232A45AB00D54420 /* MeetingPotraitTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 348E1642232A45AB00D54420 /* MeetingPotraitTableViewCell.xib */; };
+		348E1647232A45C600D54420 /* MeetingLandScapeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348E1645232A45C600D54420 /* MeetingLandScapeTableViewCell.swift */; };
+		348E1648232A45C600D54420 /* MeetingLandScapeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 348E1646232A45C600D54420 /* MeetingLandScapeTableViewCell.xib */; };
+		348E164B232A465E00D54420 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348E164A232A465E00D54420 /* Meeting.swift */; };
+		348E164D232A46E700D54420 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348E164C232A46E700D54420 /* User.swift */; };
+		9756A746C183CFB01A0A5C39 /* Pods_MeetingCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A439504380F40B06F9B6F27C /* Pods_MeetingCalendar.framework */; };
+		EB9DEA763B17FA6AC86243D0 /* Pods_MeetingCalendarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF47A29F046DEEB8429D901 /* Pods_MeetingCalendarUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0EDD376B74863E5DAA328DE9 /* Pods-MeetingCalendarUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeetingCalendarUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeetingCalendarUITests/Pods-MeetingCalendarUITests.release.xcconfig"; sourceTree = "<group>"; };
+		1AF47A29F046DEEB8429D901 /* Pods_MeetingCalendarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeetingCalendarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		348E160B232A3CA600D54420 /* MeetingCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetingCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		348E160E232A3CA600D54420 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		348E1610232A3CA600D54420 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +59,20 @@
 		348E162A232A3CA800D54420 /* MeetingCalendarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeetingCalendarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		348E162E232A3CA800D54420 /* MeetingCalendarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingCalendarUITests.swift; sourceTree = "<group>"; };
 		348E1630232A3CA800D54420 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		348E163F232A449B00D54420 /* MCServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCServiceManager.swift; sourceTree = "<group>"; };
+		348E1641232A45AB00D54420 /* MeetingPotraitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingPotraitTableViewCell.swift; sourceTree = "<group>"; };
+		348E1642232A45AB00D54420 /* MeetingPotraitTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeetingPotraitTableViewCell.xib; sourceTree = "<group>"; };
+		348E1645232A45C600D54420 /* MeetingLandScapeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingLandScapeTableViewCell.swift; sourceTree = "<group>"; };
+		348E1646232A45C600D54420 /* MeetingLandScapeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeetingLandScapeTableViewCell.xib; sourceTree = "<group>"; };
+		348E164A232A465E00D54420 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
+		348E164C232A46E700D54420 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		6BB0E1E7B0B3B9410AF805FC /* Pods-MeetingCalendarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeetingCalendarUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeetingCalendarUITests/Pods-MeetingCalendarUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7E08386B2581910D29B5CDDF /* Pods_MeetingCalendarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeetingCalendarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		895F6D91484124FAD6412D1E /* Pods-MeetingCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeetingCalendar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeetingCalendar/Pods-MeetingCalendar.debug.xcconfig"; sourceTree = "<group>"; };
+		A439504380F40B06F9B6F27C /* Pods_MeetingCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeetingCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3574F5569A7FBD8611B5658 /* Pods-MeetingCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeetingCalendar.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeetingCalendar/Pods-MeetingCalendar.release.xcconfig"; sourceTree = "<group>"; };
+		DB541700777CD02EE3690284 /* Pods-MeetingCalendarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeetingCalendarTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeetingCalendarTests/Pods-MeetingCalendarTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E153A22E3D1EAA20EF0621DD /* Pods-MeetingCalendarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeetingCalendarTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeetingCalendarTests/Pods-MeetingCalendarTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9756A746C183CFB01A0A5C39 /* Pods_MeetingCalendar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EED6AFEDEBA7E2E1DE41B82 /* Pods_MeetingCalendarTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB9DEA763B17FA6AC86243D0 /* Pods_MeetingCalendarUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +110,8 @@
 				348E1622232A3CA800D54420 /* MeetingCalendarTests */,
 				348E162D232A3CA800D54420 /* MeetingCalendarUITests */,
 				348E160C232A3CA600D54420 /* Products */,
+				9A45C34D54C874EC4FDFFF3F /* Pods */,
+				B36C8EE785BD1152822B47FC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +128,10 @@
 		348E160D232A3CA600D54420 /* MeetingCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				348E1649232A465000D54420 /* DataModels */,
+				348E163C232A447C00D54420 /* CustomCells */,
+				348E163E232A447D00D54420 /* MCServiceManager */,
+				348E163D232A447D00D54420 /* ScheduleMeeting */,
 				348E160E232A3CA600D54420 /* AppDelegate.swift */,
 				348E1610232A3CA600D54420 /* ViewController.swift */,
 				348E1612232A3CA600D54420 /* Main.storyboard */,
@@ -125,6 +160,64 @@
 			path = MeetingCalendarUITests;
 			sourceTree = "<group>";
 		};
+		348E163C232A447C00D54420 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				348E1641232A45AB00D54420 /* MeetingPotraitTableViewCell.swift */,
+				348E1642232A45AB00D54420 /* MeetingPotraitTableViewCell.xib */,
+				348E1645232A45C600D54420 /* MeetingLandScapeTableViewCell.swift */,
+				348E1646232A45C600D54420 /* MeetingLandScapeTableViewCell.xib */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		348E163D232A447D00D54420 /* ScheduleMeeting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ScheduleMeeting;
+			sourceTree = "<group>";
+		};
+		348E163E232A447D00D54420 /* MCServiceManager */ = {
+			isa = PBXGroup;
+			children = (
+				348E163F232A449B00D54420 /* MCServiceManager.swift */,
+			);
+			path = MCServiceManager;
+			sourceTree = "<group>";
+		};
+		348E1649232A465000D54420 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				348E164A232A465E00D54420 /* Meeting.swift */,
+				348E164C232A46E700D54420 /* User.swift */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		9A45C34D54C874EC4FDFFF3F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				895F6D91484124FAD6412D1E /* Pods-MeetingCalendar.debug.xcconfig */,
+				D3574F5569A7FBD8611B5658 /* Pods-MeetingCalendar.release.xcconfig */,
+				DB541700777CD02EE3690284 /* Pods-MeetingCalendarTests.debug.xcconfig */,
+				E153A22E3D1EAA20EF0621DD /* Pods-MeetingCalendarTests.release.xcconfig */,
+				6BB0E1E7B0B3B9410AF805FC /* Pods-MeetingCalendarUITests.debug.xcconfig */,
+				0EDD376B74863E5DAA328DE9 /* Pods-MeetingCalendarUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B36C8EE785BD1152822B47FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A439504380F40B06F9B6F27C /* Pods_MeetingCalendar.framework */,
+				7E08386B2581910D29B5CDDF /* Pods_MeetingCalendarTests.framework */,
+				1AF47A29F046DEEB8429D901 /* Pods_MeetingCalendarUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +225,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 348E1633232A3CA800D54420 /* Build configuration list for PBXNativeTarget "MeetingCalendar" */;
 			buildPhases = (
+				DDF0E55D35E700B528E67A3D /* [CP] Check Pods Manifest.lock */,
 				348E1607232A3CA600D54420 /* Sources */,
 				348E1608232A3CA600D54420 /* Frameworks */,
 				348E1609232A3CA600D54420 /* Resources */,
+				9E6FC4290F42C937D8DA2255 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +244,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 348E1636232A3CA800D54420 /* Build configuration list for PBXNativeTarget "MeetingCalendarTests" */;
 			buildPhases = (
+				587B6838D467CB0ABE54B72D /* [CP] Check Pods Manifest.lock */,
 				348E161B232A3CA800D54420 /* Sources */,
 				348E161C232A3CA800D54420 /* Frameworks */,
 				348E161D232A3CA800D54420 /* Resources */,
@@ -167,6 +263,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 348E1639232A3CA800D54420 /* Build configuration list for PBXNativeTarget "MeetingCalendarUITests" */;
 			buildPhases = (
+				08FC81B3B99EA2D4B5398955 /* [CP] Check Pods Manifest.lock */,
 				348E1626232A3CA800D54420 /* Sources */,
 				348E1627232A3CA800D54420 /* Frameworks */,
 				348E1628232A3CA800D54420 /* Resources */,
@@ -232,6 +329,8 @@
 				348E1619232A3CA800D54420 /* LaunchScreen.storyboard in Resources */,
 				348E1616232A3CA800D54420 /* Assets.xcassets in Resources */,
 				348E1614232A3CA600D54420 /* Main.storyboard in Resources */,
+				348E1644232A45AB00D54420 /* MeetingPotraitTableViewCell.xib in Resources */,
+				348E1648232A45C600D54420 /* MeetingLandScapeTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,13 +350,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		08FC81B3B99EA2D4B5398955 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MeetingCalendarUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		587B6838D467CB0ABE54B72D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MeetingCalendarTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E6FC4290F42C937D8DA2255 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MeetingCalendar/Pods-MeetingCalendar-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MeetingCalendar/Pods-MeetingCalendar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DDF0E55D35E700B528E67A3D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MeetingCalendar-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		348E1607232A3CA600D54420 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				348E1611232A3CA600D54420 /* ViewController.swift in Sources */,
+				348E164B232A465E00D54420 /* Meeting.swift in Sources */,
+				348E1643232A45AB00D54420 /* MeetingPotraitTableViewCell.swift in Sources */,
+				348E1640232A449B00D54420 /* MCServiceManager.swift in Sources */,
 				348E160F232A3CA600D54420 /* AppDelegate.swift in Sources */,
+				348E1647232A45C600D54420 /* MeetingLandScapeTableViewCell.swift in Sources */,
+				348E164D232A46E700D54420 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +625,7 @@
 		};
 		348E1634232A3CA800D54420 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 895F6D91484124FAD6412D1E /* Pods-MeetingCalendar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -448,6 +644,7 @@
 		};
 		348E1635232A3CA800D54420 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3574F5569A7FBD8611B5658 /* Pods-MeetingCalendar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -466,6 +663,7 @@
 		};
 		348E1637232A3CA800D54420 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB541700777CD02EE3690284 /* Pods-MeetingCalendarTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -487,6 +685,7 @@
 		};
 		348E1638232A3CA800D54420 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E153A22E3D1EAA20EF0621DD /* Pods-MeetingCalendarTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +707,7 @@
 		};
 		348E163A232A3CA800D54420 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BB0E1E7B0B3B9410AF805FC /* Pods-MeetingCalendarUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -528,6 +728,7 @@
 		};
 		348E163B232A3CA800D54420 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0EDD376B74863E5DAA328DE9 /* Pods-MeetingCalendarUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
