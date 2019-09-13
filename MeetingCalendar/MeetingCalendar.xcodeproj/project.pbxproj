@@ -22,6 +22,7 @@
 		348E1648232A45C600D54420 /* MeetingLandScapeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 348E1646232A45C600D54420 /* MeetingLandScapeTableViewCell.xib */; };
 		348E164B232A465E00D54420 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348E164A232A465E00D54420 /* Meeting.swift */; };
 		348E164D232A46E700D54420 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348E164C232A46E700D54420 /* User.swift */; };
+		348E164F232B7B2F00D54420 /* ScheduleMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348E164E232B7B2F00D54420 /* ScheduleMeetingViewController.swift */; };
 		9756A746C183CFB01A0A5C39 /* Pods_MeetingCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A439504380F40B06F9B6F27C /* Pods_MeetingCalendar.framework */; };
 		EB9DEA763B17FA6AC86243D0 /* Pods_MeetingCalendarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF47A29F046DEEB8429D901 /* Pods_MeetingCalendarUITests.framework */; };
 /* End PBXBuildFile section */
@@ -66,6 +67,7 @@
 		348E1646232A45C600D54420 /* MeetingLandScapeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeetingLandScapeTableViewCell.xib; sourceTree = "<group>"; };
 		348E164A232A465E00D54420 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
 		348E164C232A46E700D54420 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		348E164E232B7B2F00D54420 /* ScheduleMeetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMeetingViewController.swift; sourceTree = "<group>"; };
 		6BB0E1E7B0B3B9410AF805FC /* Pods-MeetingCalendarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeetingCalendarUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeetingCalendarUITests/Pods-MeetingCalendarUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7E08386B2581910D29B5CDDF /* Pods_MeetingCalendarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeetingCalendarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		895F6D91484124FAD6412D1E /* Pods-MeetingCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeetingCalendar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeetingCalendar/Pods-MeetingCalendar.debug.xcconfig"; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 		348E163D232A447D00D54420 /* ScheduleMeeting */ = {
 			isa = PBXGroup;
 			children = (
+				348E164E232B7B2F00D54420 /* ScheduleMeetingViewController.swift */,
 			);
 			path = ScheduleMeeting;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				348E1611232A3CA600D54420 /* ViewController.swift in Sources */,
 				348E164B232A465E00D54420 /* Meeting.swift in Sources */,
 				348E1643232A45AB00D54420 /* MeetingPotraitTableViewCell.swift in Sources */,
+				348E164F232B7B2F00D54420 /* ScheduleMeetingViewController.swift in Sources */,
 				348E1640232A449B00D54420 /* MCServiceManager.swift in Sources */,
 				348E160F232A3CA600D54420 /* AppDelegate.swift in Sources */,
 				348E1647232A45C600D54420 /* MeetingLandScapeTableViewCell.swift in Sources */,

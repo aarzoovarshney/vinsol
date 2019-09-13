@@ -85,7 +85,6 @@ class ViewController: UIViewController {
     func registerCell(){
         meetingTableView?.register(UINib(nibName: "MeetingLandScapeTableViewCell", bundle: nil), forCellReuseIdentifier: "MeetingLandScapeTableViewCell")
         meetingTableView?.register(UINib(nibName: "MeetingPotraitTableViewCell", bundle: nil), forCellReuseIdentifier: "MeetingPotraitTableViewCell")
-
     }
     
     func configureTableview(){
@@ -111,6 +110,10 @@ class ViewController: UIViewController {
                         let meeting = Meeting.init(responseDictionary: dictionary as [String : AnyObject])
                         self.meetingArray.append(meeting)
                     }
+                    
+                    let sortedArray = self.meetingArray.sorted { $0.startTime.localizedStandardCompare($1.startTime) == .orderedAscending }
+                    self.meetingArray.removeAll()
+                    self.meetingArray = sortedArray
                     self.meetingTableView.reloadData()
                 }
             }
@@ -174,9 +177,26 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource{
             cell.configureCell(meeting: meetingArray[indexPath.row])
             return cell
         }
-        
-
     }
     
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let customView = UIView(frame: CGRect(x: 0, y: 0, width: self.meetingTableView.frame.width, height: 100))
+        customView.backgroundColor = UIColor.init(white: 237/255, alpha: 1.0)
+        let button = UIButton(frame: CGRect(x: 10, y: 0, width: self.meetingTableView.frame.width - 20, height: 50))
+        button.backgroundColor = UIColor.init(red: 0, green: 165/255, blue: 134/255, alpha: 1.0)
+        button.layer.cornerRadius = 5.0
+        button.setTitle("Schedule Company Meeting", for: .normal)
+        button.addTarget(self, action: #selector(self.scheduleMeeting), for: .touchUpInside)
+        customView.addSubview(button)
+        return customView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
+    @objc func scheduleMeeting(){
+        
+    }
     
 }
