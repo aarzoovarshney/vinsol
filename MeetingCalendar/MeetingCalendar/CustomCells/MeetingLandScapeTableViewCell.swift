@@ -27,8 +27,8 @@ class MeetingLandScapeTableViewCell: UITableViewCell {
     }
     
     func configureCell(meeting : Meeting){
-        self.startTimeLabel.text = meeting.startTime
-        self.endTimeLabel.text = meeting.endTime
+        self.startTimeLabel.text = meeting.startTimeConverted
+        self.endTimeLabel.text = meeting.endTimeConverted
         self.descriptionLabel.text = meeting.description
         self.attendeeLabel.text = meeting.attendees.compactMap{$0.name}.joined(separator: ", ")
     }

@@ -104,20 +104,42 @@ class ViewController: UIViewController {
         self.navigationItem.title = date
         MCServiceManager().getRequest(url, parameters: parameter) { (isSuccess, response, error) in
             self.hideRefreshControl()
+            self.removePlaceholderView()
             if isSuccess{
                 if let dictionaryArray = response as? [[String:Any]]{
                     for dictionary in dictionaryArray{
                         let meeting = Meeting.init(responseDictionary: dictionary as [String : AnyObject])
                         self.meetingArray.append(meeting)
                     }
-                    
-                    let sortedArray = self.meetingArray.sorted { $0.startTime.localizedStandardCompare($1.startTime) == .orderedAscending }
-                    self.meetingArray.removeAll()
-                    self.meetingArray = sortedArray
+                    if self.meetingArray.count > 0{
+                        let sortedArray = self.meetingArray.sorted { $0.startTime.localizedStandardCompare($1.startTime) == .orderedAscending }
+                        self.meetingArray.removeAll()
+                        self.meetingArray = sortedArray
+                    }
+                    else{
+                        self.showPlaceholderView()
+                    }
                     self.meetingTableView.reloadData()
                 }
             }
         }
+    }
+    
+    
+    fileprivate func showPlaceholderView() {
+
+        let customView = UIView(frame: CGRect(x: 0, y: 200, width: self.meetingTableView.frame.width, height: 50))
+        customView.backgroundColor = UIColor.init(white: 237/255, alpha: 1.0)
+        let label = UILabel.init(frame: CGRect.init(x: 70, y: 0, width: self.meetingTableView.frame.width - 20, height: 50))
+        label.text = "No meetings scheduled yet."
+        customView.addSubview(label)
+        customView.tag = 100
+        view.addSubview(customView)
+    }
+    
+    fileprivate func removePlaceholderView(){
+        let errorViews = view.subviews.filter { $0.tag == 100 }
+        errorViews.map{ $0.removeFromSuperview() }
     }
     
     @objc func prevTapped(){

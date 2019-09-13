@@ -13,7 +13,9 @@ class Meeting{
     var description : String
     var attendees = [User]()
     var startTime : String
+    var startTimeConverted : String
     var endTime : String
+    var endTimeConverted : String
     
     init(responseDictionary:[String:AnyObject]?) {
         self.description = responseDictionary?["description"] as? String ?? ""
@@ -23,5 +25,12 @@ class Meeting{
         for attendee in attendeesArray{
             attendees.append(User.init(name: attendee))
         }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        let startTimeDate = dateFormatter.date(from: startTime)
+        let endTimeDate = dateFormatter.date(from: endTime)
+        dateFormatter.dateFormat = "h:mm a"
+        self.startTimeConverted = dateFormatter.string(from: startTimeDate!)
+        self.endTimeConverted = dateFormatter.string(from: endTimeDate!)
     }
 }

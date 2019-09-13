@@ -23,7 +23,7 @@ class MeetingPotraitTableViewCell: UITableViewCell {
     }
 
     func configureCell(meeting: Meeting){
-        self.timeLabel.text = meeting.startTime + " - " + meeting.endTime
+        self.timeLabel.text = meeting.startTimeConverted + " - " + meeting.endTimeConverted
         self.descriptionLabel.text = meeting.description
     }
 }
