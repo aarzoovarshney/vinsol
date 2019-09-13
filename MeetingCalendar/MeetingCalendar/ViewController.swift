@@ -218,7 +218,8 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     @objc func scheduleMeeting(){
-        
+        let scheduleMeetingVC = self.storyboard?.instantiateViewController(withIdentifier: "ScheduleMeetingViewController") as! ScheduleMeetingViewController
+        self.navigationController?.pushViewController(scheduleMeetingVC, animated: true)
     }
     
 }
