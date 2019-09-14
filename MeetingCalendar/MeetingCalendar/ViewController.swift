@@ -101,14 +101,25 @@ class ViewController: UIViewController {
         let parameter = ["date":date]
         self.meetingArray.removeAll()
         self.meetingTableView.reloadData()
-        self.navigationItem.title = date
+        if UIDevice.current.orientation.isLandscape {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd-MM-yyyy"
+            let myDate = dateFormatter.date(from: date)!
+            dateFormatter.dateFormat = "EEEE"
+            let dayOfTheWeekString = dateFormatter.string(from: myDate)
+            self.navigationItem.title = dayOfTheWeekString + ", " + date
+        }
+        else{
+            self.navigationItem.title = date
+            
+        }
         MCServiceManager().getRequest(url, parameters: parameter) { (isSuccess, response, error) in
             self.hideRefreshControl()
             self.removePlaceholderView()
             if isSuccess{
                 if let dictionaryArray = response as? [[String:Any]]{
                     for dictionary in dictionaryArray{
-                        let meeting = Meeting.init(responseDictionary: dictionary as [String : AnyObject])
+                        let meeting = Meeting.init(responseDictionary: dictionary as [String : AnyObject], date: self.date)
                         self.meetingArray.append(meeting)
                     }
                     if self.meetingArray.count > 0{
@@ -160,7 +171,17 @@ class ViewController: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
         let myDate = dateFormatter.date(from: currentDate)!
-        let tomorrow = Calendar.current.date(byAdding: .day, value: -1, to: myDate)
+        var tomorrow = Calendar.current.date(byAdding: .day, value: -1, to: myDate)
+        let myCalendar = Calendar(identifier: .gregorian)
+        let weekDay = myCalendar.component(.weekday, from: tomorrow!)
+        switch weekDay {
+        case 1://sunday
+            tomorrow = Calendar.current.date(byAdding: .day, value: -3, to: myDate)
+        case 7://saturday
+            tomorrow = Calendar.current.date(byAdding: .day, value: -2, to: myDate)
+        default:
+            print("weekday")
+        }
         return dateFormatter.string(from: tomorrow!)
     }
     
@@ -168,7 +189,18 @@ class ViewController: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
         let myDate = dateFormatter.date(from: currentDate)!
-        let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: myDate)
+        var tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: myDate)
+        let myCalendar = Calendar(identifier: .gregorian)
+        let weekDay = myCalendar.component(.weekday, from: tomorrow!)
+        switch weekDay {
+        case 1://sunday
+            tomorrow = Calendar.current.date(byAdding: .day, value: 2, to: myDate)
+        case 7://saturday
+            tomorrow = Calendar.current.date(byAdding: .day, value: 3, to: myDate)
+        default:
+            print("weekday")
+        }
+        
         return dateFormatter.string(from: tomorrow!)
     }
     
@@ -181,6 +213,19 @@ class ViewController: UIViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         meetingTableView.reloadData()
+        if UIDevice.current.orientation.isLandscape {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd-MM-yyyy"
+            let myDate = dateFormatter.date(from: date)!
+            dateFormatter.dateFormat = "EEEE"
+            let dayOfTheWeekString = dateFormatter.string(from: myDate)
+            self.navigationItem.title = dayOfTheWeekString + ", " + date
+        }
+        else{
+            self.navigationItem.title = date
+
+        }
+        
     }
 }
 
@@ -219,6 +264,13 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource{
     
     @objc func scheduleMeeting(){
         let scheduleMeetingVC = self.storyboard?.instantiateViewController(withIdentifier: "ScheduleMeetingViewController") as! ScheduleMeetingViewController
+        scheduleMeetingVC.meetingDate = self.date
+        scheduleMeetingVC.bookedStartTimeArray = self.meetingArray.map({ (meeting) -> String in
+            return meeting.startTime
+        })
+        scheduleMeetingVC.bookedEndTimeArray = self.meetingArray.map({ (meeting) -> String in
+            return meeting.endTime
+        })
         self.navigationController?.pushViewController(scheduleMeetingVC, animated: true)
     }
     

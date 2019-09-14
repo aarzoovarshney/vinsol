@@ -16,8 +16,9 @@ class Meeting{
     var startTimeConverted : String
     var endTime : String
     var endTimeConverted : String
+    var date : Date?
     
-    init(responseDictionary:[String:AnyObject]?) {
+    init(responseDictionary:[String:AnyObject]?, date : String) {
         self.description = responseDictionary?["description"] as? String ?? ""
         self.startTime =  responseDictionary?["start_time"] as? String ?? ""
         self.endTime = responseDictionary?["end_time"] as? String ?? ""
@@ -32,5 +33,7 @@ class Meeting{
         dateFormatter.dateFormat = "h:mm a"
         self.startTimeConverted = dateFormatter.string(from: startTimeDate!)
         self.endTimeConverted = dateFormatter.string(from: endTimeDate!)
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        self.date = dateFormatter.date(from: date)!
     }
 }

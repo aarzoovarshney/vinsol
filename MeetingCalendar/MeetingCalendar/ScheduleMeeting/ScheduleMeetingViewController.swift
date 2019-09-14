@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PSTAlertController
 
 class ScheduleMeetingViewController: UIViewController {
     @IBOutlet weak var endTimeViewTopConstraint: NSLayoutConstraint!
@@ -23,9 +24,15 @@ class ScheduleMeetingViewController: UIViewController {
     @IBOutlet weak var endTimeTextFeild: UITextField!
     
     let picker = UIPickerView()
-    
-    var startTimeArray = ["9:00","10:00","11:00","12:00","13:00","14:00","15:00"]
+    var meetingDate: String = "Meeting Date"
+    var startTimeArray = ["8:00","9:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","24:00"]
     var endTimeArray = ["9:00","10:00","11:00","12:00","13:00","14:00","15:00"]
+    
+    var startTimeDateArray = [Date]()
+    var endTimeDateArray = [Date]()
+    
+    var bookedStartTimeArray = [String]()
+    var bookedEndTimeArray = [String]()
     var selectedTime : Int = 0
     let startTimePicker = UIPickerView()
     let endTimePicker = UIPickerView()
@@ -35,6 +42,7 @@ class ScheduleMeetingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViews()
+        convertTime()
         createPicker()
         createToolbar()
         // Do any additional setup after loading the view.
@@ -56,7 +64,6 @@ class ScheduleMeetingViewController: UIViewController {
             endTimeWidthConstraint.constant = (constraint / 2) - 20
         } else {
             endTimeViewTopConstraint.constant = 10
-            print(self.view.frame)
             let height = (self.view.frame.size.height)
             let width = (self.view.frame.size.width)
             let constraint = height > width ? width : height
@@ -64,6 +71,8 @@ class ScheduleMeetingViewController: UIViewController {
             startTimeWidthConstraint.constant = constraint - 20
             endTimeWidthConstraint.constant = constraint - 20
         }
+        
+        meetingDateLabel.text = meetingDate
         
         submitButton.backgroundColor = UIColor.init(red: 0, green: 165/255, blue: 134/255, alpha: 1.0)
         submitButton.layer.cornerRadius = 5.0
@@ -85,6 +94,29 @@ class ScheduleMeetingViewController: UIViewController {
         endTimeView.layer.borderColor = UIColor(white: 211/255, alpha: 1.0).cgColor
         descriptionTextview.layer.borderColor = UIColor(white: 211/255, alpha: 1.0).cgColor
         
+        switch slotIntervals {
+        case slotDifference.halfHoured:
+            startTimeArray = ["8:00","8:30","9:00","9:30","10:00","10:30","11:00","11:30","12:00","12:30","13:00","13:30","14:00","14:30","15:00","15:30","16:00","16:30","17:00","17:30","18:00","18:30","19:00","19:30","20:00","20:30","21:00","21:30","22:00","22:30","23:00","23:30","24:00"]
+            endTimeArray = ["8:00","8:30","9:00","9:30","10:00","10:30","11:00","11:30","12:00","12:30","13:00","13:30","14:00","14:30","15:00","15:30","16:00","16:30","17:00","17:30","18:00","18:30","19:00","19:30","20:00","20:30","21:00","21:30","22:00","22:30","23:00","23:30","24:00"]
+        default:
+            startTimeArray = ["8:00","9:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","24:00"]
+            endTimeArray = ["8:00","9:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","24:00"]
+        }
+    }
+    
+    func convertTime(){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        startTimeDateArray.removeAll()
+        endTimeDateArray.removeAll()
+        for time in bookedStartTimeArray{
+            let timeDate = dateFormatter.date(from: time)
+            startTimeDateArray.append(timeDate!)
+        }
+        for time in bookedEndTimeArray{
+            let timeDate = dateFormatter.date(from: time)
+            endTimeDateArray.append(timeDate!)
+        }
     }
 
     func createPicker() {
@@ -111,8 +143,89 @@ class ScheduleMeetingViewController: UIViewController {
         endTimeTextFeild.inputAccessoryView = endTimeToolBar
     }
     
+    func showAlertMessage(_ title:String, message: String){
+        if(PSTAlertController.hasVisibleAlertController() == true){
+            return
+        }
+        let alertController = PSTAlertController(title: title, message: message, preferredStyle: PSTAlertControllerStyle.alert)
+        alertController.addAction(PSTAlertAction(title: "OK", style: PSTAlertActionStyle.default, handler: nil))
+        alertController.showWithSender(nil, controller: nil, animated: true, completion: nil)
+    }
+    
     @objc func dismissKeyboard() {
+        if selectedTime == 0{
+            startTimeTextFeild.text = startTimeArray[startTimePicker.selectedRow(inComponent: 0)]
+        }
+        else{
+            endTimeTextFeild.text = endTimeArray[endTimePicker.selectedRow(inComponent: 0)]
+        }
+        
         view.endEditing(true)
+    }
+    
+    func validateTime() -> Bool{
+        let startTime = startTimeTextFeild.text ?? ""
+        let endTime = endTimeTextFeild.text ?? ""
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        if let startTimeDate = dateFormatter.date(from: startTime){
+            if let endTimeDate = dateFormatter.date(from: endTime){
+                if startTimeDate >= endTimeDate{
+                    showAlertMessage("Warning...!!", message: "Start time should be less than end time.")
+                    return false
+                }
+                else{
+                    if (checkAvailability(startDate: startTimeDate, endDate: endTimeDate)){
+                        showAlertMessage("Hurray...!!", message: "Meeting slot of " + startTime + " - " + endTime + " booked")
+                    }
+                    else{
+                        let cal = Calendar.current
+                        let components = cal.dateComponents([.minute], from: startTimeDate, to: endTimeDate)
+                        let diffMin = components.minute!
+                        showSuggestions(slotDuration: diffMin)
+                    }
+                }
+            }
+        }
+        
+      return true
+    }
+    
+    func showSuggestions(slotDuration : Int){
+        
+        let suggestionVC = self.storyboard?.instantiateViewController(withIdentifier: "SuggestionViewController") as! SuggestionViewController
+        suggestionVC.slotDuration = slotDuration
+        suggestionVC.startTimeDateArray = self.startTimeDateArray
+        suggestionVC.endTimeDateArray = self.endTimeDateArray
+        self.navigationController?.pushViewController(suggestionVC, animated: true)
+    }
+    
+    func checkAvailability(startDate: Date, endDate: Date) -> Bool{
+        var isAvailable = true
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        if let workingStartTimeDate = dateFormatter.date(from: workingStartTime){
+            if let workingEndTimeDate = dateFormatter.date(from: workingEndTime){
+                if startDate >= workingStartTimeDate && endDate <= workingEndTimeDate{
+                    for i in 0..<startTimeDateArray.count{
+                        if (startDate >= startTimeDateArray[i] && startDate < endTimeDateArray[i]) || (endDate > startTimeDateArray[i] && endDate <= endTimeDateArray[i]){
+                            isAvailable = false
+                            return isAvailable
+                        }
+                        else if (startTimeDateArray[i] >= startDate && startTimeDateArray[i] < endDate) || (endTimeDateArray[i] >= startDate && endTimeDateArray[i] < endDate){
+                            isAvailable = false
+                            return isAvailable
+                        }
+                    }
+                }
+                else{
+                    showAlertMessage("Warning...!!", message: "Meeting slot is not in office hours. It must be between " + workingStartTime + " - " + workingEndTime)
+                    isAvailable = false
+                    return isAvailable
+                }
+            }
+        }
+      return isAvailable
     }
     
     @IBAction func pickStartTime(_ sender: Any) {
@@ -126,7 +239,7 @@ class ScheduleMeetingViewController: UIViewController {
     }
     
     @IBAction func scheduleMeeting(_ sender: Any) {
-        
+        validateTime()
     }
 }
 
@@ -150,14 +263,15 @@ extension ScheduleMeetingViewController : UIPickerViewDelegate, UIPickerViewData
         }
         else{
             return endTimeArray[row]
-        }    }
+        }
+    }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == startTimePicker{
-            startTimeTextFeild.text = startTimeArray[row]
+            selectedTime = 0
         }
         else{
-            endTimeTextFeild.text = endTimeArray[row]
+            selectedTime = 1
         }
     }
 }

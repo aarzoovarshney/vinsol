@@ -38,7 +38,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="992.79999999999995" y="27.436281859070466"/>
+            <point key="canvasLocation" x="841" y="27"/>
         </scene>
         <!--Schedule A Meeting-->
         <scene sceneID="U1S-ni-f2w">
@@ -203,7 +203,73 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sf4-rS-Qg4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1704.8" y="68.815592203898049"/>
+            <point key="canvasLocation" x="1556" y="27"/>
+        </scene>
+        <!--Suggestion View Controller-->
+        <scene sceneID="iRa-tv-TS1">
+            <objects>
+                <viewController storyboardIdentifier="SuggestionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vFb-CR-2dp" customClass="SuggestionViewController" customModule="MeetingCalendar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wiz-DI-BWS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected slot is not available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbB-71-oCa">
+                                <rect key="frame" x="10" y="30" width="355" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="ha5-Pw-fiM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.30679694730000001" blue="0.2256084609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suggested Slots are:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LkK-yG-8Z1">
+                                <rect key="frame" x="10" y="61" width="355" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="aqf-Vo-FYs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Fh-70-a9z">
+                                <rect key="frame" x="0.0" y="92" width="375" height="575"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SuggestionTableViewCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SuggestionTableViewCell" id="07A-Jw-Gfv" customClass="SuggestionTableViewCell" customModule="MeetingCalendar" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="07A-Jw-Gfv" id="VFp-Sq-DXS">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hGz-jm-Dsg" firstAttribute="trailing" secondItem="1Fh-70-a9z" secondAttribute="trailing" id="2D0-VI-kPB"/>
+                            <constraint firstItem="hGz-jm-Dsg" firstAttribute="trailing" secondItem="lbB-71-oCa" secondAttribute="trailing" constant="10" id="DgS-Yn-E04"/>
+                            <constraint firstItem="lbB-71-oCa" firstAttribute="leading" secondItem="hGz-jm-Dsg" secondAttribute="leading" constant="10" id="IUN-6q-XQU"/>
+                            <constraint firstItem="1Fh-70-a9z" firstAttribute="top" secondItem="LkK-yG-8Z1" secondAttribute="bottom" constant="10" id="LKb-xq-ZeU"/>
+                            <constraint firstItem="LkK-yG-8Z1" firstAttribute="leading" secondItem="hGz-jm-Dsg" secondAttribute="leading" constant="10" id="UV2-k3-9lf"/>
+                            <constraint firstItem="LkK-yG-8Z1" firstAttribute="top" secondItem="lbB-71-oCa" secondAttribute="bottom" constant="10" id="UYU-Qf-deZ"/>
+                            <constraint firstItem="hGz-jm-Dsg" firstAttribute="bottom" secondItem="1Fh-70-a9z" secondAttribute="bottom" id="f2y-l4-jav"/>
+                            <constraint firstItem="hGz-jm-Dsg" firstAttribute="trailing" secondItem="LkK-yG-8Z1" secondAttribute="trailing" constant="10" id="jPr-BQ-6W0"/>
+                            <constraint firstItem="lbB-71-oCa" firstAttribute="top" secondItem="hGz-jm-Dsg" secondAttribute="top" constant="10" id="nA6-k8-lxc"/>
+                            <constraint firstItem="1Fh-70-a9z" firstAttribute="leading" secondItem="hGz-jm-Dsg" secondAttribute="leading" id="o1u-XL-tNz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hGz-jm-Dsg"/>
+                    </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="LkK-yG-8Z1" id="lsB-H1-cgf"/>
+                        <outlet property="suggestionTableView" destination="1Fh-70-a9z" id="Iv5-tc-1K6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8XK-lL-QKE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2284" y="26.53673163418291"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Vtl-4D-rBF">

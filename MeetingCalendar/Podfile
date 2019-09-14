@@ -7,7 +7,7 @@ target 'MeetingCalendar' do
 
   # Pods for MeetingCalendar
     pod 'Alamofire', '~> 4.4'
-
+    pod 'PSTAlertController'
 
   target 'MeetingCalendarTests' do
     inherit! :search_paths
