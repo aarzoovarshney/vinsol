@@ -78,7 +78,7 @@ class SuggestionViewController: UIViewController {
         }
         suggestionTableView.reloadData()
         if suggestiveSlots.count == 0{
-            messageLabel.text = "No slot available...!!"
+            messageLabel.text = "No suggested slot is available...!!"
             suggestionTableView.isHidden = true
         }
     }
